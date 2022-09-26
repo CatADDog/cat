@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<!--这里使用了thymeleaf的一些布局技术-->
+<head th:replace="layout::head('首页')">
+</head>
+<body>
+
+<div th:replace="~{layout::header}"></div>
+
+<div class="container">
+    <div class="jumbotron">
+        <h1>Thymeleaf</h1>
+        <p class="lead">Thymeleaf's main goal is to bring elegant natural templates to your development workflow
+            — HTML
+            that can be correctly displayed in browsers and also work as static prototypes, allowing for
+            stronger
+            collaboration in development teams.</p>
+        <p><a th:href="@{https://www.thymeleaf.org/}" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
+    </div>
+    <div class="row">
+        <div class="col-md-4">
+            <h2>Natural templates</h2>
+            <p>
+                HTML templates written in Thymeleaf still look and work like HTML, letting the actual templates
+                that are
+                run in your application keep working as useful design artifacts.
+            </p>
+            <p><a class="btn btn-default"
+                  th:href="@{https://www.thymeleaf.org/doc/tutorials/3.0/usingthymeleaf.html}">Learn
+                more &raquo;</a>
+            </p>
+        </div>
+        <div class="col-md-4">
+            <h2>Integrations galore</h2>
+            <p>Eclipse, IntelliJ IDEA, Spring, Play, even the up-and-coming Model-View-Controller API for Java
+                EE 8.
+                Write Thymeleaf in your favourite tools, using your favourite web-development framework.</p>
+            <p><a class="btn btn-default" th:href="@{https://www.thymeleaf.org/ecosystem.html}">Learn more
+                &raquo;</a>
+            </p>
+        </div>
+        <div class="col-md-4">
+            <h2>Let's go!</h2>
+            <p>Looking to get started? Check out our Download section for getting Thymeleaf, then go to our Docs
+                pages
+                for several tutorials to slowly ease you into using Thymeleaf.</p>
+            <p><a class="btn btn-default" th:href="@{https://www.thymeleaf.org/download.html}">Learn more
+                &raquo;</a>
+            </p>
+        </div>
+    </div>
+</div>
+
+<div th:replace="~{layout::footer}"></div>
+<!-- 添加底部js部分 th:remove="tag"功能：删除当前标签但不删除内部内容-->
+<div th:remove="tag" th:include="~{layout::scripts}"></div>
+</body>
+</html>

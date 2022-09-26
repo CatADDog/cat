@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layout::head('产品信息')">
+</head>
+<body>
+<div th:replace="~{layout::header}"></div>
+
+<div class="container">
+    <ol class="breadcrumb">
+        <li class="active">菜单</li>
+        <li class="active">产品信息</li>
+    </ol>
+    <div class="row">
+        <div class="col-sm-2" id="menulist">
+            <a href="#" class="list-group-item active">笔记本电脑</a>
+            <a href="#" class="list-group-item">平板电脑</a>
+            <a href="#" class="list-group-item">电脑配件</a>
+            <a href="#" class="list-group-item">外设产品</a>
+        </div>
+        <div class="col-sm-10" id="right">
+            <table class="table table-hover">
+                <thead>
+                <tr>
+                    <th>编号</th>
+                    <th>产品</th>
+                    <th>交付时间</th>
+                    <th>状态</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>TB - Monthly</td>
+                    <td>01/04/2021</td>
+                    <td>Default</td>
+                </tr>
+                <tr class="bg-success">
+                    <td>2</td>
+                    <td>TB - Monthly</td>
+                    <td>01/06/2021</td>
+                    <td>Approved</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>TB - Monthly</td>
+                    <td>01/05/2021</td>
+                    <td>Default</td>
+                </tr>
+                <tr class="bg-danger">
+                    <td>4</td>
+                    <td>TB - Monthly</td>
+                    <td>02/07/2021</td>
+                    <td>Declined</td>
+                </tr>
+                <tr>
+                    <td>5</td>
+                    <td>TB - Monthly</td>
+                    <td>01/06/2021</td>
+                    <td>Default</td>
+                </tr>
+                <tr>
+                    <td>6</td>
+                    <td>TB - Monthly</td>
+                    <td>12/06/2021</td>
+                    <td>Default</td>
+                </tr>
+                <tr class="bg-warning">
+                    <td>7</td>
+                    <td>TB - Monthly</td>
+                    <td>03/04/2012</td>
+                    <td>Pending</td>
+                </tr>
+                <tr class="bg-info">
+                    <td>8</td>
+                    <td>TB - Monthly</td>
+                    <td>04/05/2021</td>
+                    <td>Call in to confirm</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+
+</div>
+
+
+<div th:replace="~{layout::footer}"></div>
+
+<!-- 添加底部js部分 th:remove="tag"功能：删除当前标签但不删除内部内容(见第二章附录)-->
+<div th:remove="tag" th:include="~{layout::scripts}"></div>
+<script>
+    /*     * 对选中的标签激活active状态，对先前处于active状态但之后未被选中的标签取消active
+           * （实现左侧菜单中的标签点击后变色的效果）
+           */
+    $(document).ready(function () {
+        $('#menulist>a').click(function (e) {
+            $('#menulist>a').removeClass('active');
+            $(this).addClass('active');
+        });
+    });
+</script>
+
+</body>
+</html>
